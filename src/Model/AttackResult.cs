@@ -1,6 +1,3 @@
-/// <summary>
-/// ''' AttackResult gives the result after a shot has been made.
-/// ''' </summary>
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,7 +10,9 @@ using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualBasic;
-
+/// <summary>
+/// AttackResult gives the result after a shot has been made.
+/// </summary>
 public class AttackResult
 {
     private ResultOfAttack _Value;

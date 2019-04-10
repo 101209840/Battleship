@@ -268,30 +268,31 @@ public static class GameResources
         _Music.Add(musicName, Audio.LoadMusic(SwinGame.PathToResource(filename, ResourceKind.SoundResource)));
     }
 
+	//todo: 
     private static void FreeFonts()
     {
-        Font obj;
+        //Font obj;
         foreach (var obj in _Fonts.Values)
             SwinGame.FreeFont(obj);
     }
 
     private static void FreeImages()
     {
-        Bitmap obj;
+        //Bitmap obj;
         foreach (var obj in _Images.Values)
             SwinGame.FreeBitmap(obj);
     }
 
     private static void FreeSounds()
     {
-        SoundEffect obj;
+        //SoundEffect obj;
         foreach (var obj in _Sounds.Values)
             Audio.FreeSoundEffect(obj);
     }
 
     private static void FreeMusic()
     {
-        Music obj;
+        //Music obj;
         foreach (var obj in _Music.Values)
             Audio.FreeMusic(obj);
     }
