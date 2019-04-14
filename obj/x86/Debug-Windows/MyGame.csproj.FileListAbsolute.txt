@@ -4,3 +4,6 @@ C:\Users\chong\Desktop\Semester 4\Developement Project-1\Battleship\obj\x86\Debu
 C:\Users\User\Desktop\New folder\Battleship\bin\Debug\MyGame.exe
 C:\Users\User\Desktop\New folder\Battleship\bin\Debug\SwinGame.dll
 C:\Users\User\Desktop\New folder\Battleship\obj\x86\Debug-Windows\MyGame.exe
+C:\Battleship\bin\Debug\MyGame.exe
+C:\Battleship\bin\Debug\SwinGame.dll
+C:\Battleship\obj\x86\Debug-Windows\MyGame.exe
