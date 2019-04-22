@@ -32,15 +32,15 @@ static class MenuController
 	///     ''' These are the text captions for the menu items.
 	///     ''' </remarks>
 	private readonly static string [] [] _menuStructure = {
-		new string[] { "PLAY", "SETUP", "SCORES", "QUIT" },
+		new string[] { "PLAY", "SETUP", "SCORES", "QUIT", "MUTE MUSIC", "UNMUTE MUSIC" },
 		new string[] { "RETURN", "SURRENDER", "QUIT" },
 		new string[] { "EASY", "MEDIUM", "HARD" }
 	};
 
 	private const int MENU_TOP = 575;
 	private const int MENU_LEFT = 30;
-	private const int MENU_GAP = 0;
-	private const int BUTTON_WIDTH = 75;
+	private const int MENU_GAP = 10;
+	private const int BUTTON_WIDTH = 100;
 	private const int BUTTON_HEIGHT = 15;
 	private const int BUTTON_SEP = BUTTON_WIDTH + MENU_GAP;
 	private const int TEXT_OFFSET = 0;
@@ -53,6 +53,8 @@ static class MenuController
 	private const int MAIN_MENU_SETUP_BUTTON = 1;
 	private const int MAIN_MENU_TOP_SCORES_BUTTON = 2;
 	private const int MAIN_MENU_QUIT_BUTTON = 3;
+	private const int MAIN_MENU_MUTE_MUSIC_BUTTON = 4;
+	private const int MAIN_MENU_UNMUTE_MUSIC_BUTTON = 5;	
 
 	private const int SETUP_MENU_EASY_BUTTON = 0;
 	private const int SETUP_MENU_MEDIUM_BUTTON = 1;
@@ -259,6 +261,7 @@ static class MenuController
 	///     ''' <param name="button">the button pressed</param>
 	public static void PerformMainMenuAction (int button)
 	{
+        
 		switch (button) {
 		case MAIN_MENU_PLAY_BUTTON: {
 				GameController.StartGame ();
@@ -277,6 +280,14 @@ static class MenuController
 
 		case MAIN_MENU_QUIT_BUTTON: {
 				GameController.EndCurrentState ();
+				break;
+			}
+		case MAIN_MENU_MUTE_MUSIC_BUTTON: {
+				SwinGame.StopMusic ();
+				break;
+				} 	
+		case MAIN_MENU_UNMUTE_MUSIC_BUTTON: {
+			SwinGame.PlayMusic (GameResources.GameMusic("Background"));
 				break;
 			}
 		}
