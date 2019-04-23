@@ -120,8 +120,8 @@ static class HighScoreController
     public static void DrawHighScores()
     {
         const int SCORES_HEADING = 40;
-        const int SCORES_TOP = 80;
-        const int SCORE_GAP = 30;
+        const int SCORES_TOP = 100;
+        const int SCORE_GAP = 40;
 
         if (_Scores.Count == 0)
             LoadScores();
@@ -137,7 +137,7 @@ static class HighScoreController
             s = _Scores[i];
 
             // for scores 1 - 9 use 01 - 09
-            if (i < 9)
+            if (i < 6)
                 SwinGame.DrawText(" " + (i + 1) + ":   " + s.Name + "   " + s.Value, Color.White, GameResources.GameFont("Courier"), SCORES_LEFT, SCORES_TOP + i * SCORE_GAP);
             else
                 SwinGame.DrawText(i + 1 + ":   " + s.Name + "   " + s.Value, Color.White, GameResources.GameFont("Courier"), SCORES_LEFT, SCORES_TOP + i * SCORE_GAP);

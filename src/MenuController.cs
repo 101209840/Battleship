@@ -32,7 +32,7 @@ static class MenuController
 	///     ''' These are the text captions for the menu items.
 	///     ''' </remarks>
 	private readonly static string [] [] _menuStructure = {
-		new string[] { "PLAY", "SETUP", "SCORES", "QUIT", "MUTE MUSIC", "UNMUTE MUSIC" },
+		new string[] { "PLAY", "SETUP", "SCORES", "QUIT", "MUTE MUSIC", "UNMUTE MUSIC", "INSTRUCTION" },
 		new string[] { "RETURN", "SURRENDER", "QUIT" },
 		new string[] { "EASY", "MEDIUM", "HARD" }
 	};
@@ -54,7 +54,8 @@ static class MenuController
 	private const int MAIN_MENU_TOP_SCORES_BUTTON = 2;
 	private const int MAIN_MENU_QUIT_BUTTON = 3;
 	private const int MAIN_MENU_MUTE_MUSIC_BUTTON = 4;
-	private const int MAIN_MENU_UNMUTE_MUSIC_BUTTON = 5;	
+	private const int MAIN_MENU_UNMUTE_MUSIC_BUTTON = 5;
+	private const int MAIN_MENU_INSTRUCTION_BUTTON = 6;
 
 	private const int SETUP_MENU_EASY_BUTTON = 0;
 	private const int SETUP_MENU_MEDIUM_BUTTON = 1;
@@ -67,7 +68,7 @@ static class MenuController
 
 	private readonly static Color MENU_COLOR = SwinGame.RGBAColor (2, 167, 252, 255);
 	private readonly static Color HIGHLIGHT_COLOR = SwinGame.RGBAColor (1, 57, 86, 255);
-
+ 
 	/// <summary>
 	///     ''' Handles the processing of user input when the main menu is showing
 	///     ''' </summary>
@@ -287,12 +288,15 @@ static class MenuController
 				break;
 				} 	
 		case MAIN_MENU_UNMUTE_MUSIC_BUTTON: {
-			SwinGame.PlayMusic (GameResources.GameMusic("Background"));
+				SwinGame.PlayMusic (GameResources.GameMusic("Background"));
+				break;
+			}
+		case MAIN_MENU_INSTRUCTION_BUTTON: {
+				GameController.AddNewState (GameState.ViewingInstruction);
 				break;
 			}
 		}
 	}
-
 
 	/// <summary>
 	///     ''' The setup menu was clicked, perform the button's action.

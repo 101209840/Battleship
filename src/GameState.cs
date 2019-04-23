@@ -20,6 +20,11 @@ public enum GameState
     ///     ''' </summary>
     AlteringSettings,
 
+	/// <summary>
+    ///     ''' The player is altering the game settings
+    ///     ''' </summary>
+    ViewingInstruction,
+
     /// <summary>
     ///     ''' Players are deploying their ships
     ///     ''' </summary>
