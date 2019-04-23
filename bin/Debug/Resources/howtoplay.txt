@@ -1,0 +1,8 @@
+7
+- Use the ESC key to pause the game or go back.
+- Press the play button in the menu to start the game.
+- You can also set the difficulty in the main menu.
+- When you start a game, you need to deploy your ships.
+- Press the play button after you finish deploying.
+- The goal of the game is to hit all the ships of the oppenent before the oppenent hit all yours.
+- Score will be taken after each game.
