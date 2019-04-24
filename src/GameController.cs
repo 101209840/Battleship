@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using Microsoft.VisualBasic;
 using SwinGameSDK;
 
+
 /// <summary>
 
 /// ''' The GameController is responsible for controlling the game,
@@ -31,6 +32,14 @@ public static class GameController
 	private static Stack<GameState> _state = new Stack<GameState> ();
 
 	private static AIOption _aiSetting;
+
+	private static string showstartdate;
+	private static string showPlayingDate;
+
+	private static Timer gameTime = SwinGame.CreateTimer();
+
+
+
 
 	/// <summary>
 	///     ''' Returns the current state of the game, indicating which screen is
@@ -75,6 +84,16 @@ public static class GameController
 		_state.Push (GameState.ViewingMainMenu);
 	}
 
+
+
+	public static void Displaytimer ()
+	{
+		SwinGame.DrawText (showstartdate, Color.White, 100, 80);
+		SwinGame.DrawText (showPlayingDate, Color.White, 100, 100);
+		//SwinGame.DrawText (startTimer() ,Color.White, 150, 150);
+	}
+
+
 	/// <summary>
 	///     ''' Starts a new game.
 	///     ''' </summary>
@@ -83,12 +102,16 @@ public static class GameController
 	///     ''' </remarks>
 	public static void StartGame ()
 	{
+
+
 		//todo: change default to Easy
 		if (_theGame != null)
 			EndGame ();
 
 		// Create the game
 		_theGame = new BattleShipsGame ();
+
+
 
 		// create the players
 		switch (_aiSetting) {
@@ -110,11 +133,15 @@ public static class GameController
 
 		_human = new Player (_theGame);
 
+
+
 		// AddHandler _human.PlayerGrid.Changed, AddressOf GridChanged
 		_ai.PlayerGrid.Changed += GridChanged;
 		_theGame.AttackCompleted += AttackCompleted;
 
 		AddNewState (GameState.Deploying);
+
+		showstartdate = string.Format ("Started playing at: {0:HH:mm:ss tt}", DateTime.Now);
 	}
 
 	/// <summary>
@@ -123,6 +150,8 @@ public static class GameController
 
 	private static void EndGame ()
 	{
+		//showDate = string.Format ("{0:HH:mm:ss tt}", DateTime.Now);
+		//Displaytimer ();
 		// RemoveHandler _human.PlayerGrid.Changed, AddressOf GridChanged
 		_ai.PlayerGrid.Changed -= GridChanged;
 		_theGame.AttackCompleted -= AttackCompleted;
@@ -136,7 +165,9 @@ public static class GameController
 	///     ''' <param name="args">not used</param>
 	private static void GridChanged (object sender, EventArgs args)
 	{
+		showPlayingDate = string.Format ("Current time: {0:HH:mm:ss tt}", DateTime.Now);
 		DrawScreen ();
+
 		SwinGame.RefreshScreen ();
 	}
 
@@ -238,6 +269,9 @@ public static class GameController
 		SwitchState (GameState.Discovering);
 	}
 
+
+
+
 	/// <summary>
 	///     ''' Gets the player to attack the indicated row and column.
 	///     ''' </summary>
@@ -248,6 +282,8 @@ public static class GameController
 	///     ''' </remarks>
 	public static void Attack (int row, int col)
 	{
+		
+
 		AttackResult result;
 		result = _theGame.Shoot (row, col);
 		CheckAttackResult (result);

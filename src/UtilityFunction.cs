@@ -15,6 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualBasic;
 using SwinGameSDK;
+using static GameController;
 
 static class UtilityFunctions
 {
@@ -249,6 +250,7 @@ static class UtilityFunctions
     ///     ''' </summary>
     public static void DrawMessage()
     {
+		Displaytimer();
 		SwinGame.DrawText(Message, MESSAGE_COLOR, GameResources.GameFont("Courier"), FIELD_LEFT, MESSAGE_TOP);
     }
 
