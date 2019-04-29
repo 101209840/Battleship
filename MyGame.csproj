@@ -152,6 +152,7 @@
     <None Include="Resources\SwinGame.ico" />
     <None Include="Resources\images\Main Game Tutorial.png" />
     <None Include="Resources\howtoplay.txt" />
+    <None Include="Resources\fonts\pt-sans.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\DeploymentController.cs" />

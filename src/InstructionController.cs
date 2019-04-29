@@ -54,7 +54,7 @@ static class InstructionController
 		if (_Instruction.Count == 0)
 			LoadInstruction ();
 
-		SwinGame.DrawText ("   How to Play   ", Color.Azure, GameResources.GameFont ("Menu"), 325, INSTRUCTION_HEADING);
+		SwinGame.DrawText ("   How to Play   ", Color.Azure, GameResources.GameFont ("Instruction"), 325, INSTRUCTION_HEADING);
 
 		// For all of the instruction
 		int i;
@@ -64,11 +64,11 @@ static class InstructionController
 			s = _Instruction [i];
 
 			if (i < 6)
-				SwinGame.DrawText (s.name, Color.Azure, GameResources.GameFont ("Menu"), INSTRUCTION_LEFT, INSTRUCTION_TOP + i * INSTRUCTION_GAP);
+				SwinGame.DrawText (s.name, Color.Azure, GameResources.GameFont ("Instruction"), INSTRUCTION_LEFT, INSTRUCTION_TOP + i * INSTRUCTION_GAP);
 			else
-				SwinGame.DrawText (s.name, Color.Azure, GameResources.GameFont ("Menu"), INSTRUCTION_LEFT, INSTRUCTION_TOP + i * INSTRUCTION_GAP);
-		}		SwinGame.DrawText ("Press ESC Key to Go to Menu", Color.Azure, GameResources.GameFont ("Menu"), 270, 350);
-		SwinGame.DrawText ("Good Luck!", Color.Azure, GameResources.GameFont ("Menu"), 325, 390);
+				SwinGame.DrawText (s.name, Color.Azure, GameResources.GameFont ("Instruction"), INSTRUCTION_LEFT, INSTRUCTION_TOP + i * INSTRUCTION_GAP);
+		}		SwinGame.DrawText ("Press ESC Key to Go to Menu", Color.Azure, GameResources.GameFont ("Instruction"), 270, 350);
+		SwinGame.DrawText ("Good Luck!", Color.Azure, GameResources.GameFont ("Instruction"), 325, 390);
 
 	}
 

@@ -11,6 +11,8 @@
       <File FileName="src\UtilityFunction.cs" Line="43" Column="5" />
       <File FileName="src\EndingGameController.cs" Line="51" Column="25" />
       <File FileName="src\GameLogic.cs" Line="29" Column="46" />
+      <File FileName="src\GameResources.cs" Line="23" Column="23" />
+      <File FileName="src\InstructionController.cs" Line="52" Column="34" />
       <File FileName="Battleship Status" />
     </Files>
   </MonoDevelop.Ide.Workbench>

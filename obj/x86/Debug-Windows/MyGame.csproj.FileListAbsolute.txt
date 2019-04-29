@@ -7,3 +7,11 @@ C:\Users\User\Desktop\New folder\Battleship\obj\x86\Debug-Windows\MyGame.exe
 C:\Battleship\bin\Debug\MyGame.exe
 C:\Battleship\bin\Debug\SwinGame.dll
 C:\Battleship\obj\x86\Debug-Windows\MyGame.exe
+C:\Battleship\bin\Debug\mscorlib.dll
+C:\Battleship\bin\Debug\zh-Hans\mscorlib.resources.dll
+C:\Battleship\bin\Debug\normidna.nlp
+C:\Battleship\bin\Debug\normnfc.nlp
+C:\Battleship\bin\Debug\normnfd.nlp
+C:\Battleship\bin\Debug\normnfkc.nlp
+C:\Battleship\bin\Debug\normnfkd.nlp
+C:\Battleship\obj\x86\Debug-Windows\MyGame.csprojResolveAssemblyReference.cache
