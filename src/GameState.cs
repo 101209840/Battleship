@@ -43,5 +43,10 @@ public enum GameState
     /// <summary>
     ///     ''' The player has quit. Show ending credits and terminate the game
     ///     ''' </summary>
-    Quitting
+    Quitting,
+
+	/// <summary>
+	///     ''' The player gives up. Show enemy ships location.
+	///     ''' </summary>
+	Reveal
 }

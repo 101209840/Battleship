@@ -183,6 +183,7 @@
     <Compile Include="src\Model\TileView.cs" />
     <Compile Include="src\Model\AIEasyPlayer.cs" />
     <Compile Include="src\InstructionController.cs" />
+    <Compile Include="RevealController.cs" />
   </ItemGroup>
   <Target Name="CopyFiles">
     <Copy SourceFiles="@(MacLibraryFiles)" DestinationFolder="$(OutDir)" />

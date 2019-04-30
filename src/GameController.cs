@@ -40,6 +40,7 @@ public static class GameController
 	private static Timer gameTime = SwinGame.CreateTimer();
 	private static int shipleft = 5; //todo:
 
+	private static string revealtext;
 
 
 
@@ -93,9 +94,8 @@ public static class GameController
 		SwinGame.DrawText (showstartdate, Color.White, 100, 80);
 		SwinGame.DrawText (showPlayingDate, Color.White, 100, 100);
 		SwinGame.DrawText (showshipleft, Color.White, 100, 300);
-		//SwinGame.DrawText (startTimer() ,Color.White, 150, 150);
+		SwinGame.DrawText (revealtext, Color.Yellow, 400, 35);
 	}
-
 
 	/// <summary>
 	///     ''' Starts a new game.
@@ -105,7 +105,7 @@ public static class GameController
 	///     ''' </remarks>
 	public static void StartGame ()
 	{
-
+		
 
 		//todo: change default to Easy
 		if (_theGame != null)
@@ -145,6 +145,7 @@ public static class GameController
 		AddNewState (GameState.Deploying);
 
 		showstartdate = string.Format ("Started playing at: {0:HH:mm:ss tt}", DateTime.Now);
+		revealtext = "Press R to reveal ships, SPACE to hide ships";
 	}
 
 	/// <summary>
@@ -388,11 +389,14 @@ public static class GameController
 				InstructionController.HandleInstructInput ();
 				break;
 			}
+		case GameState.Reveal: {
+				RevealController.HandleRevealInput ();
+				break;
+			}
+
+			UtilityFunctions.UpdateAnimations ();
 		}
-
-		UtilityFunctions.UpdateAnimations ();
 	}
-
 	/// <summary>
 	///     ''' Draws the current state of the game to the screen.
 	///     ''' </summary>
@@ -441,6 +445,10 @@ public static class GameController
 			}
 		case GameState.ViewingInstruction: {
 				InstructionController.DrawInstruction ();
+				break;
+			}
+		case GameState.Reveal: {
+				RevealController.DrawReveal ();
 				break;
 			}
 		}

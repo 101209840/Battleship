@@ -271,6 +271,7 @@ static class UtilityFunctions
                 }
 
 			case  GameState.Discovering: //;
+			case  GameState.Reveal: //;			
 			case  GameState.EndingGame: //;
                 {
                     SwinGame.DrawBitmap(GameResources.GameImage("Discovery"), 0, 0);
