@@ -35,8 +35,10 @@ public static class GameController
 
 	private static string showstartdate;
 	private static string showPlayingDate;
+	private static string showshipleft;
 
 	private static Timer gameTime = SwinGame.CreateTimer();
+	private static int shipleft = 5; //todo:
 
 
 
@@ -90,6 +92,7 @@ public static class GameController
 	{
 		SwinGame.DrawText (showstartdate, Color.White, 100, 80);
 		SwinGame.DrawText (showPlayingDate, Color.White, 100, 100);
+		SwinGame.DrawText (showshipleft, Color.White, 100, 300);
 		//SwinGame.DrawText (startTimer() ,Color.White, 150, 150);
 	}
 
@@ -204,6 +207,8 @@ public static class GameController
 		bool isHuman;
 		isHuman = _theGame.Player == HumanPlayer;
 
+
+
 		if (isHuman)
 			UtilityFunctions.Message = "You " + result.ToString ();
 		else
@@ -213,6 +218,11 @@ public static class GameController
 		case ResultOfAttack.Destroyed: {
 				PlayHitSequence (result.Row, result.Column, isHuman);
 				Audio.PlaySoundEffect (GameResources.GameSound ("Sink"));
+				if (isHuman) {
+					shipleft--;
+					showshipleft = ("There are " + shipleft.ToString () + " enemy Ship left");
+				}
+
 				break;
 			}
 
@@ -233,8 +243,6 @@ public static class GameController
 			}
 
 
-
-
 		case ResultOfAttack.Hit: {
 				PlayHitSequence (result.Row, result.Column, isHuman);
 				break;
@@ -249,6 +257,8 @@ public static class GameController
 				Audio.PlaySoundEffect (GameResources.GameSound ("Error"));
 				break;
 			}
+
+
 		}
 	}
 
@@ -413,6 +423,7 @@ public static class GameController
 				DeploymentController.DrawDeployment ();
 				break;
 			}
+
 
 		case GameState.Discovering: {
 				DiscoveryController.DrawDiscovery ();
