@@ -44,6 +44,10 @@ static class EndingGameController
 			SwinGame.DrawTextLines ("-- WINNER --", Color.White, Color.Transparent, GameResources.GameFont ("ArialLarge"), FontAlignment.AlignCenter, 0, 250, SwinGame.ScreenWidth (), SwinGame.ScreenHeight ());
 
 		}
+				GameController.shipleft = 5;
+				GameController.missleft = 15;
+				GameController.showshipleft = "";
+				GameController.showmissleft = "";
 	}
     /// <summary>
     ///     ''' Handle the input during the end of the game. Any interaction

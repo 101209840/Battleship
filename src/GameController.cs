@@ -37,7 +37,7 @@ public static class GameController
 
 	private static Timer gameTime = SwinGame.CreateTimer();
 	public static int shipleft = 5; //todo:
-	public static int missleft = 30;
+	public static int missleft = 15;
 	private static string revealtext;
 	public static string showmissleft;
 
@@ -267,8 +267,10 @@ public static class GameController
 			}
 
 		case ResultOfAttack.Miss: {
-				missleft--;
-				showmissleft = ("You can only miss "+ missleft.ToString() + " more times");
+				if (isHuman) {
+					missleft--;
+					showmissleft = ("You can only miss " + missleft.ToString () + " more times");
+				}
 				PlayMissSequence (result.Row, result.Column, isHuman);
 				break;
 			}
@@ -343,7 +345,7 @@ public static class GameController
 	{
 		switch (result.Value) {
 		case ResultOfAttack.Miss: {
-				if (HumanPlayer.Missed > 29 && _aiSetting == AIOption.Insane) {
+				if (HumanPlayer.Missed > 14 && _aiSetting == AIOption.Insane) {
 					SwitchState (GameState.EndingGame);
 				}
 				if (_theGame.Player == ComputerPlayer)

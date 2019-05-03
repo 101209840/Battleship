@@ -344,7 +344,7 @@ static class MenuController
 
 		case GAME_MENU_SURRENDER_BUTTON: {
 				GameController.shipleft = 5;
-				GameController.missleft = 30;
+				GameController.missleft = 15;
 				GameController.showshipleft = "";
 				GameController.showmissleft = "";
 				GameController.EndCurrentState (); // end game menu
