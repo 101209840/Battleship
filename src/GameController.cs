@@ -28,19 +28,18 @@ public static class GameController
 	private static Player _human;
 	//private static bool _mute = false;
 	private static AIPlayer _ai;
-
 	private static Stack<GameState> _state = new Stack<GameState> ();
-
-	private static AIOption _aiSetting;
+	public static AIOption _aiSetting;
 
 	private static string showstartdate;
 	private static string showPlayingDate;
-	private static string showshipleft;
+	public static string showshipleft;
 
 	private static Timer gameTime = SwinGame.CreateTimer();
-	private static int shipleft = 5; //todo:
-
+	public static int shipleft = 5; //todo:
+	public static int missleft = 30;
 	private static string revealtext;
+	public static string showmissleft;
 
 
 
@@ -62,8 +61,12 @@ public static class GameController
 	///     ''' <value>the human player</value>
 	///     ''' <returns>the human player</returns>
 	public static Player HumanPlayer {
+
 		get {
 			return _human;
+		}
+		set {
+			_human = value;
 		}
 	}
 
@@ -89,13 +92,21 @@ public static class GameController
 
 
 
-	public static void Displaytimer ()
+	public static void Displaytext ()
 	{
 		SwinGame.DrawText (showstartdate, Color.White, 100, 80);
 		SwinGame.DrawText (showPlayingDate, Color.White, 100, 100);
-		SwinGame.DrawText (showshipleft, Color.White, 100, 300);
+		SwinGame.DrawText (showshipleft, Color.White, 70, 300);
+		if(GameController.CurrentState==GameState.Discovering||GameController.CurrentState==GameState.Reveal)
 		SwinGame.DrawText (revealtext, Color.Yellow, 400, 35);
+		if(_aiSetting==AIOption.Insane)
+	    SwinGame.DrawText (showmissleft, Color.White, 70, 325);
+
 	}
+
+	public static void Displayshipleft ()
+	{
+	}
 
 	/// <summary>
 	///     ''' Starts a new game.
@@ -105,7 +116,7 @@ public static class GameController
 	///     ''' </remarks>
 	public static void StartGame ()
 	{
-		
+
 
 		//todo: change default to Easy
 		if (_theGame != null)
@@ -128,6 +139,11 @@ public static class GameController
 				break;
 			}
 
+		case AIOption.Insane: {
+				_ai = new AIHardPlayer (_theGame);
+				break;
+			}
+
 		default: {
 				_ai = new AIEasyPlayer (_theGame);
 				break;
@@ -146,6 +162,8 @@ public static class GameController
 
 		showstartdate = string.Format ("Started playing at: {0:HH:mm:ss tt}", DateTime.Now);
 		revealtext = "Press R to reveal ships, SPACE to hide ships";
+
+
 	}
 
 	/// <summary>
@@ -232,10 +250,9 @@ public static class GameController
 				Audio.PlaySoundEffect (GameResources.GameSound ("Sink"));
 
 				while (Audio.SoundEffectPlaying (GameResources.GameSound ("Sink"))) {
-					SwinGame.Delay (10);
+					SwinGame.Delay (2);
 					SwinGame.RefreshScreen ();
 				}
-
 				if (HumanPlayer.IsDestroyed)
 					Audio.PlaySoundEffect (GameResources.GameSound ("Lose"));
 				else
@@ -250,6 +267,8 @@ public static class GameController
 			}
 
 		case ResultOfAttack.Miss: {
+				missleft--;
+				showmissleft = ("You can only miss "+ missleft.ToString() + " more times");
 				PlayMissSequence (result.Row, result.Column, isHuman);
 				break;
 			}
@@ -258,7 +277,6 @@ public static class GameController
 				Audio.PlaySoundEffect (GameResources.GameSound ("Error"));
 				break;
 			}
-
 
 		}
 	}
@@ -325,6 +343,9 @@ public static class GameController
 	{
 		switch (result.Value) {
 		case ResultOfAttack.Miss: {
+				if (HumanPlayer.Missed > 29 && _aiSetting == AIOption.Insane) {
+					SwitchState (GameState.EndingGame);
+				}
 				if (_theGame.Player == ComputerPlayer)
 					AIAttack ();
 				break;
@@ -486,6 +507,7 @@ public static class GameController
 	{
 		_state.Pop ();
 	}
+
 
 	/// <summary>
 	///     ''' Sets the difficulty for the next level of the game.

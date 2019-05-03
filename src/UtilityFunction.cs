@@ -250,7 +250,7 @@ static class UtilityFunctions
     ///     ''' </summary>
     public static void DrawMessage()
     {
-		Displaytimer();
+		Displaytext ();
 		SwinGame.DrawText(Message, MESSAGE_COLOR, GameResources.GameFont("Courier"), FIELD_LEFT, MESSAGE_TOP);
     }
 

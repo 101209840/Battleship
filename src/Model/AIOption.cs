@@ -13,5 +13,10 @@ public enum AIOption
     /// <summary>
     ///     ''' As medium, but removes shots once it misses
     ///     ''' </summary>
-    Hard
+    Hard,
+	/// <summary>
+	///     ''' As medium, but removes shots once it misses
+	///     ''' </summary>
+	Insane
+
 }

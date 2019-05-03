@@ -32,7 +32,12 @@ static class EndingGameController
 		UtilityFunctions.DrawField (GameController.ComputerPlayer.PlayerGrid, GameController.ComputerPlayer, true);
 		UtilityFunctions.DrawSmallField (GameController.HumanPlayer.PlayerGrid, GameController.HumanPlayer);
 
-		if (GameController.HumanPlayer.IsDestroyed) {
+		if (HumanPlayer.Missed > 5 && _aiSetting == AIOption.Insane) {
+			SwinGame.DrawTextLines ("NO MORE TURNS!", Color.White, Color.Transparent, GameResources.GameFont ("ArialLarge"), FontAlignment.AlignCenter, 0, 250, SwinGame.ScreenWidth (), SwinGame.ScreenHeight ());
+			if (SwinGame.MouseClicked(MouseButton.LeftButton) || SwinGame.KeyTyped(KeyCode.vk_RETURN) || SwinGame.KeyTyped(KeyCode.vk_ESCAPE))
+			GameController.SwitchState(GameState.ViewingMainMenu);
+		} 
+		else if (GameController.HumanPlayer.IsDestroyed) {
 			SwinGame.DrawTextLines ("YOU LOSE!", Color.White, Color.Transparent, GameResources.GameFont ("ArialLarge"), FontAlignment.AlignCenter, 0, 250, SwinGame.ScreenWidth (), SwinGame.ScreenHeight ());
 
 		} else {

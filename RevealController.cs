@@ -29,7 +29,7 @@ static class RevealController
 	///     ''' </remarks>
 	public static void HandleRevealInput ()
 	{
-		if (SwinGame.KeyTyped (KeyCode.vk_SPACE))
+		if (SwinGame.KeyTyped (KeyCode.vk_SPACE) || SwinGame.KeyTyped (KeyCode.vk_ESCAPE))
 			GameController.SwitchState (GameState.Discovering);
 
 		if (SwinGame.MouseClicked (MouseButton.LeftButton))

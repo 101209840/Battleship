@@ -34,7 +34,7 @@ static class MenuController
 	private readonly static string [] [] _menuStructure = {
 		new string[] { "PLAY", "SETUP", "SCORES", "QUIT", "MUTE MUSIC", "UNMUTE MUSIC", "INSTRUCTION" },
 		new string[] { "RETURN", "SURRENDER", "QUIT" },
-		new string[] { "EASY", "MEDIUM", "HARD" }
+		new string[] { "EASY", "MEDIUM", "HARD", "INSANE" }
 	};
 
 	private const int MENU_TOP = 575;
@@ -60,7 +60,8 @@ static class MenuController
 	private const int SETUP_MENU_EASY_BUTTON = 0;
 	private const int SETUP_MENU_MEDIUM_BUTTON = 1;
 	private const int SETUP_MENU_HARD_BUTTON = 2;
-	private const int SETUP_MENU_EXIT_BUTTON = 3;
+	private const int SETUP_MENU_INSANE_BUTTON = 3;
+	private const int SETUP_MENU_EXIT_BUTTON = 4;
 
 	private const int GAME_MENU_RETURN_BUTTON = 0;
 	private const int GAME_MENU_SURRENDER_BUTTON = 1;
@@ -320,6 +321,10 @@ static class MenuController
 				GameController.SetDifficulty (AIOption.Hard);
 				break;
 			}
+		case SETUP_MENU_INSANE_BUTTON: {
+				GameController.SetDifficulty (AIOption.Insane);
+				break;
+			}
 		}
 		// Always end state - handles exit button as well
 		GameController.EndCurrentState ();
@@ -338,6 +343,10 @@ static class MenuController
 			}
 
 		case GAME_MENU_SURRENDER_BUTTON: {
+				GameController.shipleft = 5;
+				GameController.missleft = 30;
+				GameController.showshipleft = "";
+				GameController.showmissleft = "";
 				GameController.EndCurrentState (); // end game menu
 				GameController.EndCurrentState (); // end game
 				break;
