@@ -199,7 +199,7 @@ static class HighScoreController
 			while (SwinGame.ReadingText ()) {
 				SwinGame.ProcessEvents ();
 
-				UtilityFunctions.DrawBackground ();
+				//UtilityFunctions.DrawBackground ();
 				DrawHighScores ();
 				SaveScores (); 
 				SwinGame.DrawText ("Name: ", Color.White, GameFont ("Courier"), SCORES_LEFT, ENTRY_TOP);

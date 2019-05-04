@@ -50,13 +50,13 @@ static class InstructionController
 		const int INSTRUCTION_HEADING = 40;
 		const int INSTRUCTION_TOP = 80;
 		const int INSTRUCTION_GAP = 40;
-
-		if (_Instruction.Count == 0)
-			LoadInstruction ();
+		SwinGame.ClearScreen();
+		LoadInstruction ();
 
 		SwinGame.DrawText ("   How to Play   ", Color.Azure, GameResources.GameFont ("Instruction"), 325, INSTRUCTION_HEADING);
 
 		// For all of the instruction
+		UtilityFunctions.DrawBackground ();
 		int i;
 		for (i = 0; i <= _Instruction.Count - 1; i++) {
 			Instruction s = default (Instruction);
@@ -69,13 +69,12 @@ static class InstructionController
 				SwinGame.DrawText (s.name, Color.Azure, GameResources.GameFont ("Instruction"), INSTRUCTION_LEFT, INSTRUCTION_TOP + i * INSTRUCTION_GAP);
 		}		SwinGame.DrawText ("Press ESC Key to Go to Menu", Color.Azure, GameResources.GameFont ("Instruction"), 270, 350);
 		SwinGame.DrawText ("Good Luck!", Color.Azure, GameResources.GameFont ("Instruction"), 325, 390);
-
 	}
 
 	public static void HandleInstructInput ()
 	{
 		if (SwinGame.MouseClicked (MouseButton.LeftButton) || SwinGame.KeyTyped (KeyCode.vk_ESCAPE) || SwinGame.KeyTyped (KeyCode.vk_RETURN)) {
-			GameController.EndCurrentState ();
+			GameController.SwitchState(GameState.ViewingMainMenu);
 		}
 	}
 }

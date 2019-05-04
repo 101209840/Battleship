@@ -283,6 +283,11 @@ static class UtilityFunctions
                     SwinGame.DrawBitmap(GameResources.GameImage("Deploy"), 0, 0);
                     break;
                 }
+			case  GameState.ViewingInstruction: //;
+                {
+                    SwinGame.DrawBitmap(GameResources.GameImage("InstructionOne"), 0, 0);
+                    break;
+                }
 
 			default: //;
                 {

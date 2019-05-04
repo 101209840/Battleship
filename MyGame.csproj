@@ -153,6 +153,10 @@
     <None Include="Resources\images\Main Game Tutorial.png" />
     <None Include="Resources\howtoplay.txt" />
     <None Include="Resources\fonts\pt-sans.ttf" />
+    <None Include="Resources\images\Instruction.png" />
+    <None Include="Resources\images\instruction1.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\DeploymentController.cs" />

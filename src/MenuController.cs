@@ -293,7 +293,7 @@ static class MenuController
 				break;
 			}
 		case MAIN_MENU_INSTRUCTION_BUTTON: {
-				GameController.AddNewState (GameState.ViewingInstruction);
+				GameController.SwitchState (GameState.ViewingInstruction);
 				break;
 			}
 		}
