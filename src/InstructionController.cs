@@ -51,13 +51,12 @@ static class InstructionController
 		const int INSTRUCTION_TOP = 80;
 		const int INSTRUCTION_GAP = 40;
 		SwinGame.ClearScreen();
+		SwinGame.DrawBitmap ("ship_deploy_vert_2.png", 100, 500);
+		SwinGame.DrawBitmap ("ship_deploy_horiz_3.png", 600, 500);
 		LoadInstruction ();
-		SwinGame.DrawBitmap ("Instruction.png", 0, 0);
 		SwinGame.DrawText ("   How to Play   ", Color.Azure, GameResources.GameFont ("Instruction"), 325, INSTRUCTION_HEADING);
 
 		// For all of the instruction
-		//UtilityFunctions.DrawBackground ();
-
 		int i;
 		for (i = 0; i <= _Instruction.Count - 1; i++) {
 			Instruction s = default (Instruction);

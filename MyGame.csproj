@@ -110,7 +110,6 @@
     <None Include="Resources\fonts\ffaccess.ttf" />
     <None Include="Resources\fonts\maven_pro_regular.ttf" />
     <None Include="Resources\images\deploy.jpg" />
-    <None Include="Resources\images\deploy_button_hl.png" />
     <None Include="Resources\images\deploy_dir_button_horiz.png" />
     <None Include="Resources\images\deploy_dir_button_vert.png" />
     <None Include="Resources\images\deploy_play_button.png" />
@@ -153,6 +152,9 @@
     <None Include="Resources\howtoplay.txt" />
     <None Include="Resources\fonts\pt-sans.ttf" />
     <None Include="Resources\images\Instruction.png" />
+    <None Include="Resources\images\cardsBoard.png" />
+    <None Include="Resources\images\deploy_button_hl.png" />
+    <None Include="Resources\images\Instruction2.png" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\DeploymentController.cs" />
