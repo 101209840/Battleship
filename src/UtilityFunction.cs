@@ -285,7 +285,7 @@ static class UtilityFunctions
                 }
 			case  GameState.ViewingInstruction: //;
                 {
-                    SwinGame.DrawBitmap(GameResources.GameImage("InstructionOne"), 0, 0);
+                    SwinGame.DrawBitmap(GameResources.GameImage("Instruct"), 0, 0);
                     break;
                 }
 
