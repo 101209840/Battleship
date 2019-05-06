@@ -416,7 +416,10 @@ public static class GameController
 				RevealController.HandleRevealInput ();
 				break;
 			}
-
+		case GameState.ViewingInstructionImg: {
+				InstructionImgController.HandleImgInstructInput ();
+				break;
+			}
 			UtilityFunctions.UpdateAnimations ();
 		}
 	}
@@ -472,6 +475,10 @@ public static class GameController
 			}
 		case GameState.Reveal: {
 				RevealController.DrawReveal ();
+				break;
+			}
+		case GameState.ViewingInstructionImg: {
+				InstructionImgController.DrawInstructionImg ();
 				break;
 			}
 		}

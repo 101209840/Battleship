@@ -51,10 +51,8 @@ static class InstructionController
 		const int INSTRUCTION_TOP = 80;
 		const int INSTRUCTION_GAP = 40;
 		SwinGame.ClearScreen();
-		SwinGame.DrawBitmap ("ship_deploy_vert_2.png", 100, 500);
-		SwinGame.DrawBitmap ("ship_deploy_horiz_3.png", 600, 500);
 		LoadInstruction ();
-		SwinGame.DrawText ("   How to Play   ", Color.Azure, GameResources.GameFont ("Instruction"), 325, INSTRUCTION_HEADING);
+		SwinGame.DrawText ("   Instruction   ", Color.Azure, GameResources.GameFont ("Instruction"), 325, INSTRUCTION_HEADING);
 
 		// For all of the instruction
 		int i;
@@ -68,13 +66,21 @@ static class InstructionController
 			else
 				SwinGame.DrawText (s.name, Color.Azure, GameResources.GameFont ("Instruction"), INSTRUCTION_LEFT, INSTRUCTION_TOP + i * INSTRUCTION_GAP);
 		}		SwinGame.DrawText ("Press ESC Key to Go to Menu", Color.Azure, GameResources.GameFont ("Instruction"), 270, 350);
-		SwinGame.DrawText ("Good Luck!", Color.Azure, GameResources.GameFont ("Instruction"), 325, 390);
+		SwinGame.DrawText ("Press Space Bar to see detailed instruction", Color.Azure, GameResources.GameFont ("Instruction"), 200, 390);
+	}
+
+	public static void DrawInstructionImg ()
+	{
+		SwinGame.ClearScreen();
+		SwinGame.DrawBitmap ("Instruction.png", 0, 300);
 	}
 
 	public static void HandleInstructInput ()
 	{
 		if (SwinGame.MouseClicked (MouseButton.LeftButton) || SwinGame.KeyTyped (KeyCode.vk_ESCAPE) || SwinGame.KeyTyped (KeyCode.vk_RETURN)) {
 			GameController.SwitchState(GameState.ViewingMainMenu);
+		} else if (SwinGame.KeyTyped (KeyCode.vk_SPACE)){
+			GameController.SwitchState (GameState.ViewingInstructionImg);
 		}
 	}
 }

@@ -283,7 +283,6 @@ static class UtilityFunctions
                     SwinGame.DrawBitmap(GameResources.GameImage("Deploy"), 0, 0);
                     break;
                 }
-
 			default: //;
                 {
                     SwinGame.ClearScreen();
