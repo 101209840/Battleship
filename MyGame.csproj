@@ -155,6 +155,7 @@
     <None Include="Resources\images\cardsBoard.png" />
     <None Include="Resources\images\deploy_button_hl.png" />
     <None Include="Resources\images\Instruction2.png" />
+    <None Include="Resources\sounds\ashipisdown.wav" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="src\DeploymentController.cs" />

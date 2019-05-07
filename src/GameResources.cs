@@ -55,10 +55,12 @@ public static class GameResources
         NewSound("Error", "error.wav");
         NewSound("Hit", "hit.wav");
         NewSound("Sink", "sink.wav");
+		NewSound ("Shipdestroyed", "ashipisdown.wav");
         NewSound("Siren", "siren.wav");
         NewSound("Miss", "watershot.wav");
         NewSound("Winner", "winner.wav");
         NewSound("Lose", "lose.wav");
+
     }
 
     private static void LoadMusic()

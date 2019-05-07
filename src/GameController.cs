@@ -237,6 +237,7 @@ public static class GameController
 		case ResultOfAttack.Destroyed: {
 				PlayHitSequence (result.Row, result.Column, isHuman);
 				Audio.PlaySoundEffect (GameResources.GameSound ("Sink"));
+				Audio.PlaySoundEffect (GameResources.GameSound ("Shipdestroyed"));
 				if (isHuman) {
 					shipleft--;
 					showshipleft = ("There are " + shipleft.ToString () + " enemy Ship left");
