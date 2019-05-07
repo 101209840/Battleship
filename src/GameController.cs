@@ -10,6 +10,7 @@ using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualBasic;
+
 using SwinGameSDK;
 
 
@@ -40,7 +41,7 @@ public static class GameController
 	public static int missleft = 15;
 	private static string revealtext;
 	public static string showmissleft;
-
+	public static ShipName _shipName;
 
 
 	/// <summary>
@@ -236,8 +237,11 @@ public static class GameController
 		switch (result.Value) {
 		case ResultOfAttack.Destroyed: {
 				PlayHitSequence (result.Row, result.Column, isHuman);
-				Audio.PlaySoundEffect (GameResources.GameSound ("Sink"));
-				Audio.PlaySoundEffect (GameResources.GameSound ("Shipdestroyed"));
+
+
+					Audio.PlaySoundEffect (GameResources.GameSound ("Shipdestroyed"));
+				
+
 				if (isHuman) {
 					shipleft--;
 					showshipleft = ("There are " + shipleft.ToString () + " enemy Ship left");
