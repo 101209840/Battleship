@@ -58,14 +58,14 @@ public static class GameResources
 		NewSound ("Shipdestroyed", "ashipisdown.wav");
         NewSound("Siren", "siren.wav");
         NewSound("Miss", "watershot.wav");
-        NewSound("Winner", "winner.wav");
+        NewSound("Winner", "Victory.wav");
         NewSound("Lose", "lose.wav");
 
     }
 
     private static void LoadMusic()
     {
-        NewMusic("Background", "horrordrone.mp3");
+        NewMusic("Background", "newbackground.mp3");
     }
 
     /// <summary>
