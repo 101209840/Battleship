@@ -20,7 +20,7 @@ using static GameResources;
 /// </remarks>
 static class HighScoreController
 {
-	private const int NAME_WIDTH = 3;
+	private const int NAME_WIDTH = 5;
 
 	private const int SCORES_LEFT = 490;
 	/// <summary>
@@ -53,8 +53,7 @@ static class HighScoreController
 	private static List<Score> _Scores = new List<Score> ();
 
 
-	public static List<Score> ScoresList 
-	{
+	public static List<Score> ScoresList {
 		get { return _Scores; }
 	}
 
@@ -68,7 +67,7 @@ static class HighScoreController
 	///     ''' 
 	///     ''' Where NNN is the name and SSS is the score
 	///     ''' </remarks>
-	public static void LoadScores () 
+	public static void LoadScores ()
 	{
 		string filename = null;
 		filename = SwinGame.PathToResource ("highscores.txt");
@@ -164,8 +163,8 @@ static class HighScoreController
 	public static void HandleHighScoreInput ()
 	{
 		if (SwinGame.MouseClicked (MouseButton.LeftButton) || SwinGame.KeyTyped (KeyCode.vk_ESCAPE) || SwinGame.KeyTyped (KeyCode.vk_RETURN)) {
-			SaveScores (); 
-			GameController.EndCurrentState();
+			SaveScores ();
+			GameController.EndCurrentState ();
 		}
 	}
 
@@ -199,17 +198,17 @@ static class HighScoreController
 			while (SwinGame.ReadingText ()) {
 				SwinGame.ProcessEvents ();
 
-				//UtilityFunctions.DrawBackground ();
+				UtilityFunctions.DrawBackground ();
 				DrawHighScores ();
-				SaveScores (); 
+				SaveScores ();
 				SwinGame.DrawText ("Name: ", Color.White, GameFont ("Courier"), SCORES_LEFT, ENTRY_TOP);
 				SwinGame.RefreshScreen ();
 			}
 
 			s.Name = SwinGame.TextReadAsASCII ();
 
-			if (s.Name.Length < 3) {
-				s.Name = s.Name + new string (Convert.ToChar (" "), 3 - s.Name.Length);
+			if (s.Name.Length < 5) {
+				s.Name = s.Name + new string (Convert.ToChar (" "), 5 - s.Name.Length);
 			}
 
 			_Scores.RemoveAt (_Scores.Count - 1);
